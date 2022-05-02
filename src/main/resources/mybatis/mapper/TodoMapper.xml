@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pro.isbportal.todo.TodoRespository">
+    <select id="getTodoList" resultType="todo">
+        SELECT seq_no
+            , author
+            , content
+          FROM dbdportal.todo
+    </select>
+
+    <insert id="saveTodo" parameterType="todo">
+        INSERT INTO dbdportal.todo
+        (content, created_at, updated_at, author)
+        VALUES(#{content}, NOW(), NULL, #{author})
+    </insert>
+
+    <delete id="removeTodo">
+        DELETE FROM dbdportal.todo
+         WHERE seq_no= #{seq_no};
+    </delete>
+</mapper>

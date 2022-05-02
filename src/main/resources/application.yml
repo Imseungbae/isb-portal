@@ -1,0 +1,28 @@
+mybatis:
+  config-location: classpath:mybatis-config.xml
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/dbdportal
+    username: tmdqo9
+    password: wndrnr12
+
+server:
+  port: 8080
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/dbdportal
+    username: tmdqo9
+    password: wndrnr12
+
+server:
+  port: 22001

@@ -17,9 +17,12 @@
 <configuration>
     <typeAliases>
         <typeAlias alias ="user" type="com.pro.isbportal.dto.UserDto"/>
+        <typeAlias alias ="login" type="com.pro.isbportal.dto.LoginDto"/>
+        <typeAlias alias ="todo" type="com.pro.isbportal.todo.TodoVO"/>
     </typeAliases>
     <mappers>
         <!-- MAIN -->
         <mapper resource="mybatis/mapper/MainMapper.xml"/>
+        <mapper resource="mybatis/mapper/TodoMapper.xml"/>
     </mappers>
 </configuration>
