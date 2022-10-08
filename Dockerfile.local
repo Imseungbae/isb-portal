@@ -1,0 +1,10 @@
+FROM openjdk:11
+ENV	USE_PROFILE local
+ARG JAR_FILE=/build/libs/isb-portal-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} isb-portal.jar
+
+ENTRYPOINT ["java", "-Dspring.profiles.active=${USE_PROFILE}", "-jar","/isb-portal.jar"]
+
+
+# 도커 빌드: docker build -f Dockerfile.local -t isb-portal .
+# 도커 실행: docker run --rm -p 8080:8080 --name isb-portal --network isb-portal-net isb-portal

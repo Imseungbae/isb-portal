@@ -4,13 +4,13 @@
 
 <mapper namespace="com.pro.isbportal.mapper.MainMapper">
     <insert id="simpleJoinUser" parameterType="user">
-        INSERT INTO dbdportal.user(user_id, user_password, name)
+        INSERT INTO user(user_id, user_password, name)
         VALUES (#{userId}, #{userPassword}, #{name})
     </insert>
 
     <select id="simpleLoginUser" parameterType="login" resultType="String">
         SELECT name
-          FROM dbdportal.user
+          FROM user
          WHERE user_id = #{id}
            AND user_password = #{password}
     </select>

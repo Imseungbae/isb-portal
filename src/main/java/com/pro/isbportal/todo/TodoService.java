@@ -24,6 +24,15 @@ public class TodoService {
         return "SUCCESS";
     }
 
+    public String editTodo(TodoVO todoVO) {
+        int result = todoRespository.editTodo(todoVO);
+
+        if(result<1){
+            return "FAIL";
+        }
+        return "SUCCESS";
+    }
+
     public String removeTodo(int seq_no) {
         int result = todoRespository.removeTodo(seq_no);
 

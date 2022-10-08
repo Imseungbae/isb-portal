@@ -2,27 +2,31 @@ mybatis:
   config-location: classpath:mybatis-config.xml
 
 ---
-
+# 로컬환경
 spring:
   profiles: local
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://127.0.0.1:3306/dbdportal
+    url: jdbc:mysql://isb-portal-db:3306/dbdportal
     username: tmdqo9
     password: wndrnr12
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 server:
   port: 8080
 
 ---
-
+# 개발환경
 spring:
   profiles: dev
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://127.0.0.1:3306/dbdportal
-    username: tmdqo9
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mariadb://13.209.83.211:3306/portal?allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://isb-portal-db:3306/dbdportal
+    username: root
     password: wndrnr12
 
 server:
   port: 22001
+
+---
+# 운영환경

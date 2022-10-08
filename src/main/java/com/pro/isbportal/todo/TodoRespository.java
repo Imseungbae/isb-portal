@@ -9,5 +9,7 @@ import java.util.List;
 public interface TodoRespository {
     List<TodoVO> getTodoList();
     int saveTodo(TodoVO todoVO);
+    int editTodo(TodoVO todoVO);
     int removeTodo(int seq_no);
+
 }

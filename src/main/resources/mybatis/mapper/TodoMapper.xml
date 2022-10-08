@@ -7,17 +7,27 @@
         SELECT seq_no
             , author
             , content
-          FROM dbdportal.todo
+            , created_at
+            , updated_at
+          FROM todo
     </select>
 
     <insert id="saveTodo" parameterType="todo">
-        INSERT INTO dbdportal.todo
+        INSERT INTO todo
         (content, created_at, updated_at, author)
         VALUES(#{content}, NOW(), NULL, #{author})
     </insert>
 
+    <update id="editTodo" parameterType="todo">
+        UPDATE todo
+           SET content = #{content}
+            , author = #{author}
+            , updated_at = NOW()
+        WHERE seq_no = #{seq_no}
+    </update>
+
     <delete id="removeTodo">
-        DELETE FROM dbdportal.todo
+        DELETE FROM todo
          WHERE seq_no= #{seq_no};
     </delete>
 </mapper>

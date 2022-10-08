@@ -1,0 +1,6 @@
+FROM openjdk:11
+ENV	USE_PROFILE prod
+ARG JAR_FILE=/build/libs/isb-portal-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} portal.jar
+
+ENTRYPOINT ["java", "-Dspring.profiles.active=${USE_PROFILE}", "-jar","/portal.jar"]
